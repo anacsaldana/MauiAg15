@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:MauiAg15.ViewModels"
+             x:Class="MauiAg15.MainPage"
+             Title="Cadastro de Eventos">
+
+    <!-- BindingContext definido para EventoViewModel -->
+    <ContentPage.BindingContext>
+        <viewModels:EventoViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Nome do Evento" FontAttributes="Bold" />
+            <Entry Text="{Binding Evento.Nome}" 
+                   Placeholder="Digite o nome do evento"
+                   ClearButtonVisibility="WhileEditing" />
+
+            <Label Text="Data de Início" FontAttributes="Bold" />
+            <DatePicker Date="{Binding Evento.DataInicio}" />
+
+            <Label Text="Data de Término" FontAttributes="Bold" />
+            <DatePicker Date="{Binding Evento.DataTermino}" />
+
+            <Label Text="Número de Participantes" FontAttributes="Bold" />
+            <Entry Text="{Binding Evento.NumeroParticipantes}" 
+                   Keyboard="Numeric" 
+                   Placeholder="Digite o número de participantes"
+                   ClearButtonVisibility="WhileEditing" />
+
+            <Label Text="Local do Evento" FontAttributes="Bold" />
+            <Entry Text="{Binding Evento.Local}" 
+                   Placeholder="Digite o local do evento"
+                   ClearButtonVisibility="WhileEditing" />
+
+            <Label Text="Custo por Participante" FontAttributes="Bold" />
+            <Entry Text="{Binding Evento.CustoPorParticipante}" 
+                   Keyboard="Numeric" 
+                   Placeholder="Digite o custo por participante"
+                   ClearButtonVisibility="WhileEditing" />
+
+            <Button Text="Cadastrar Evento" 
+                    Command="{Binding CadastrarCommand}" 
+                    BackgroundColor="#007ACC"
+                    TextColor="White" 
+                    CornerRadius="10" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
